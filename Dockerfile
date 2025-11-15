@@ -33,6 +33,12 @@ COPY ./app /app/app
 COPY alembic.ini /app/alembic.ini
 COPY migrations /app/migrations
 
+# Copy the tests directory
+COPY ./tests /app/tests
+
+# Copy pytest.ini
+COPY pytest.ini /app/pytest.ini
+
 # Expose the port the app runs on
 EXPOSE 8000
 

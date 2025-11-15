@@ -21,9 +21,8 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# Set the database URL from our application settings
-# This overrides the sqlalchemy.url from alembic.ini
-config.set_main_option('sqlalchemy.url', settings.DATABASE_URL)
+# This ensures Alembic and the pytest app are looking at the same database.
+config.set_main_option('sqlalchemy.url', settings.get_database_url())
 
 # add your model's MetaData object here
 # for 'autogenerate' support
