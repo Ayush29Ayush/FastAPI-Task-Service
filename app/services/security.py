@@ -8,14 +8,14 @@ from loguru import logger
 from app.core.config import settings
 from app.schemas.token import TokenData
 
-# Password hashing context
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+# Use pbkdf2_sha256 which is pure-python and has no bcrypt dependency
+pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 
 ALGORITHM = settings.ALGORITHM
 
 def get_password_hash(password: str) -> str:
     """
-    Hashes a plain-text password using bcrypt.
+    Hashes a plain-text password using bcrypt_sha256 (preferred).
     """
     return pwd_context.hash(password)
 
