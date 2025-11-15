@@ -1,0 +1,28 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Database & ORM
+sqlalchemy
+psycopg2-binary
+alembic
+
+# Pydantic (included with fastapi, but good to be explicit)
+pydantic
+pydantic-settings
+email-validator
+
+# API Testing
+pytest
+httpx
+
+# Security & Auth
+python-jose[cryptography]
+passlib[bcrypt]
+
+# Rate Limiting
+slowapi
+
+# Logging
+loguru
